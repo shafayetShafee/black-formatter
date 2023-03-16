@@ -1,0 +1,49 @@
+---
+title: "Black-formatter Example"
+format: html
+jupyter: python3
+filters:
+  - black-formatter
+---
+
+## Example 1
+
+```{python}
+print (    'hello, world' )
+```
+
+## Example 2
+
+```{python}
+def is_unique(
+               s
+               ):
+    s = list(s
+                )
+    s.sort()
+ 
+ 
+    for i in range(len(s) - 1):
+        if s[i] == s[i + 1]:
+            return 0
+    else:
+        return 1
+```
+
+## Example 3
+
+```{python}
+def example_function(arg_1: str, arg_2: bool, arg_3: int = 0, arg_4: int = 1, arg_5: float = 0.0):
+    pass
+```
+
+
+## Example 4
+
+```{python}
+def function(name, default=None, *args, variable="1123", a, b, c, employee, office, d, e, f, **kwargs):
+    """This is function is created to demonstrate black"""
+    pass
+```
+
+
