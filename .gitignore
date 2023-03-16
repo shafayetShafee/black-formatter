@@ -3,3 +3,4 @@
 *_files/
 *.rproj
 .Rproj.user
+!docs/*
