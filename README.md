@@ -13,7 +13,9 @@ If you're using version control, you will want to check in this directory.
 
 ## Using
 
-Add the filter in your quarto document
+Before using this filter, make sure black is installed already. See [here](https://github.com/psf/black#installation) for installation command.
+
+Then add the filter in your quarto document
 
 ```
 ---
