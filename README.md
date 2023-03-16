@@ -1,13 +1,11 @@
 # Black-formatter Extension For Quarto
 
-_TODO_: Add a short description of your extension.
+A [Quarto](https://quarto.org/) filter to format the python code using [black](https://black.readthedocs.io/en/stable/index.html)
 
 ## Installing
 
-_TODO_: Replace the `<github-organization>` with your GitHub organization.
-
 ```bash
-quarto add <github-organization>/black-formatter
+quarto add shafayetShafee/black-formatter
 ```
 
 This will install the extension under the `_extensions` subdirectory.
@@ -15,9 +13,16 @@ If you're using version control, you will want to check in this directory.
 
 ## Using
 
-_TODO_: Describe how to use your extension.
+Add the filter in your quarto document
+
+```
+---
+filters:
+  - black-formatter
+---
+```
 
 ## Example
 
-Here is the source code for a minimal example: [example.qmd](example.qmd).
+Here is the source code for a minimal example: [example.qmd](example.qmd) and view the rendered output with black-formatted code [here](https://shafayetshafee.github.io/black-formatter/example.html)
 

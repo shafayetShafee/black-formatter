@@ -30,6 +30,16 @@ def is_unique(
         return 1
 ```
 
+
+[black defaults to 88 character per line](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length). But you can change this default behavior
+by specifying `line-length` in the `pyproject.toml` file.
+
+```{.toml filename='pyproject.toml'}
+[tool.black]
+line-length = 40
+```
+
+
 ## Example 3
 
 ```{python}
