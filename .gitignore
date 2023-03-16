@@ -4,3 +4,4 @@
 *.rproj
 .Rproj.user
 !docs/*
+.Rhistory

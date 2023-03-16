@@ -24,6 +24,8 @@ filters:
 ---
 ```
 
+And it is possible to specify the black command line options [via a `pyproject.toml` file](https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file).
+
 ## Example
 
 Here is the source code for a minimal example: [example.qmd](example.qmd) and view the rendered output with black-formatted code [here](https://shafayetshafee.github.io/black-formatter/example.html)
