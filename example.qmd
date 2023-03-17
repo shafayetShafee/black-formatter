@@ -1,10 +1,15 @@
 ---
 title: "Black-formatter Example"
-format: html
+format: 
+  html:
+    code-tools: true
 jupyter: python3
 filters:
   - black-formatter
+embed-resources: true
 ---
+
+> Note: View the source of this document along with unformatted python codes by clicking `</> Code` on top-right corner to compare.
 
 ## Example 1
 
