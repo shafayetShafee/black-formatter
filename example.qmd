@@ -14,12 +14,14 @@ embed-resources: true
 ## Example 1
 
 ```{python}
+#| label: hello_world
 print (    'hello, world' )
 ```
 
 ## Example 2
 
 ```{python}
+#| label: is_unique
 def is_unique(
                s
                ):
@@ -47,7 +49,10 @@ line-length = 40
 
 ## Example 3
 
-```{python}
+This extension works on unexecutable code blocks (i.e. `{.python}`) too.
+
+
+```{.python}
 def example_function(arg_1: str, arg_2: bool, arg_3: int = 0, arg_4: int = 1, arg_5: float = 0.0):
     pass
 ```
@@ -55,7 +60,7 @@ def example_function(arg_1: str, arg_2: bool, arg_3: int = 0, arg_4: int = 1, ar
 
 ## Example 4
 
-```{python}
+```{.python #test_function}
 def function(name, default=None, *args, variable="1123", a, b, c, employee, office, d, e, f, **kwargs):
     """This is function is created to demonstrate black"""
     pass

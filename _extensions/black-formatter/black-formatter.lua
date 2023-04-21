@@ -22,24 +22,78 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ]]--
 
-function CodeBlock(cb)
-  if cb.classes:includes('python') then
-    local randName = string.char(
-      math.random(97,122), math.random(97,122),
-      math.random(97,122), math.random(97,122),
-      math.random(97,122),math.random(97,122)
-    )
-    local name = "_" .. randName .. "_black_formatted.py" 
-    local f = io.open(name, 'w+b')
-    f:write(cb.text)
-    f:close()
-    local formatted = io.popen("python -m black " .. name)
-    formatted:close()
-    local formatted_file = io.open(name, 'r')
-    local formatted_content = formatted_file:read("*all")
-    formatted_file:close()
-    os.remove(name)
-    cb.text = formatted_content
-    return cb
-  end
+
+local function isEmpty(s)
+  return s == nil or s == ''
 end
+
+
+local function add_codeblock_label(label)
+  local labeller = {
+    -- Add id for code block using the id from div.cell
+    CodeBlock = function(cb)
+      if cb.classes:includes('python') then
+        cb.identifier = label
+        return cb
+      end
+    end
+  }
+  return labeller
+end
+
+
+local function label_codeblock()
+  local labelled_cb = {
+    Div = function(el)
+      if el.classes:includes("cell") then
+        local label = el.identifier
+        return el:walk(add_codeblock_label(label))
+      end
+    end
+  }
+  return labelled_cb
+end
+
+
+local function black_format()
+  local black_formatter = {
+    CodeBlock = function(cb)
+      if cb.classes:includes('python') then
+        local randName = string.char(
+          math.random(97,122), math.random(97,122),
+          math.random(97,122), math.random(97,122),
+          math.random(97,122), math.random(97,122)
+        )
+        
+        local label = cb.identifier
+        local name
+        
+        if isEmpty(label) then
+          name = "_" .. randName .. "_black_formatted.py"  
+        else
+          name = "_" .. label .. "_black_formatted.py"
+        end
+         
+        local f = io.open(name, 'w+b')
+        f:write(cb.text)
+        f:close()
+        local formatted = io.popen("python -m black " .. name)
+        formatted:close()
+        local formatted_file = io.open(name, 'r')
+        local formatted_content = formatted_file:read("*all")
+        formatted_file:close()
+        os.remove(name)
+        cb.text = formatted_content
+        return cb
+      end
+    end
+  }
+  return black_formatter
+end
+
+
+function Pandoc(doc)
+  local doc = doc:walk(label_codeblock())
+  return doc:walk(black_format())
+end
+
