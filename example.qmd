@@ -49,7 +49,7 @@ line-length = 40
 
 ## Example 3
 
-This extension works on unexecutable code blocks (i.e. `{.python}`) too.
+This extension works on non executable code blocks (i.e. `{.python}`) too.
 
 
 ```{.python}
