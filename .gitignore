@@ -5,3 +5,7 @@
 .Rproj.user
 !docs/*
 .Rhistory
+test.qmd
+test_files/
+test.native
+black_env/
